@@ -19,6 +19,6 @@ Mes essais :
   ma base démarre et mon phpmyadmin discute avec
 par contre pas mon application malgré la modification de mon fichier de connection : /nginx/www/DbConnect.php
 
-J'ai essayé de trouvé une variable d'environnement à ajouter au serveur web, rien de concluant.
+J'ai essayé de trouver une variable d'environnement à ajouter au serveur web, rien de concluant.
 
 ## Ma question: Où intervenir pour que le serveur web accède à la base de données sur un autre port?
