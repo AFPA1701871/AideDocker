@@ -1,0 +1,79 @@
+version: "3.9"
+services:
+  server-php:
+    build:
+      context: ./php
+    container_name: server-php
+    restart: always
+    volumes:
+      - "./nginx/www:/usr/share/nginx/html"
+      - "./php/log.conf:/usr/local/etc/php-fpm.d/zz-log.conf"
+      - "./php/logs/php.log:/var/log/fpm-php.www.log"
+    links:
+      - server-mysql
+    depends_on:
+      - server-mysql
+#    networks:
+#      - backendnet
+
+  server-web:
+    build:
+      context: ./nginx
+    container_name: server-web
+    restart: always
+    volumes:
+        - "./nginx/www:/usr/share/nginx/html"
+        - "./nginx/log:/var/log/nginx"
+        - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+        - "./nginx/sites/:/etc/nginx/sites-available"
+        - "./nginx/conf.d/:/etc/nginx/conf.d"
+    ports:
+        - "8080:80"
+    links:
+      - server-php
+      - server-mysql
+    depends_on:
+      - server-php
+      - server-mysql
+#    networks:
+#      - frontendnet
+#      - backendnet
+
+  server-mysql:
+    build:
+      context: ./mysql
+    container_name: server-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment : 
+      - ENV MYSQL_ROOT_PASSWORD test
+    volumes:
+      - ./mysqldata:/var/lib/mysql
+#    networks:
+#       - backendnet
+
+  server-phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: server-phpmyadmin
+    restart: always
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: server-mysql
+      PMA_USER: root
+      PMA_PASSWORD: test
+      PMA_PORTS: 3306
+    ports:
+      - 8000:80
+    depends_on:
+      - server-mysql
+    links:
+      - server-mysql
+
+volumes:
+  mysqldata:
+   
+#networks:
+#  backendnet:
+#  frontendnet:
+

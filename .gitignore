@@ -1,0 +1,4 @@
+# exclu tous les dossiers et sous dossiers mysqldata
+mysqldata/
+log/
+*.log
