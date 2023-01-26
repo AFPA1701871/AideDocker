@@ -22,3 +22,6 @@ par contre pas mon application malgré la modification de mon fichier de connect
 J'ai essayé de trouver une variable d'environnement à ajouter au serveur web, rien de concluant.
 
 ## Ma question: Où intervenir pour que le serveur web accède à la base de données sur un autre port?
+
+
+## Solution : Ne pas préciser le port dans la chaine de connexion
