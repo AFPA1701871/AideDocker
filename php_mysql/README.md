@@ -11,15 +11,15 @@ Installation :
   docker-compose up -d
 ```
 
-Decoupage : 
-4 dossiers
-  mysql : contient 
-                - le dockerFile pour l'image mariaDB
-                - le script de création et d'initialisation de la base
-  mysqldata : contient les fichiers persistant de la base de données
-  nginx : serveur Web contient
-                - le dockerFile pour mettre en place le serveur Web
-                - le dossier de log
-                - le dossier projet www avec tous les fichiers PHP
-  php : contient le dockerFile pour mettre en place le serveur Php
+Mon but : J'aimerais changé le port de la base de données.
 
+Mes essais : 
+  J'ai modifié dans le docker-compose : ligne 48 
+  et ajouté la ligne 65
+  résultat : si je change 3306 en 3310 par exemple, 
+  ma base démarre et mon phpmyadmin discute avec
+par contre pas mon application malgré la modification de mon fichier de connection : /nginx/www/DbConnect.php
+
+J'ai essayé de trouvé une variable d'environnement à ajouter au serveur web, rien de concluant.
+
+Ma question: Où intervenir pour que le serveur web accède à la base de données sur un autre port?
