@@ -1,5 +1,5 @@
 
-# Project Titre Connexion PHP Mysql
+# Connexion PHP Mysql
 
 
 ## Installation
