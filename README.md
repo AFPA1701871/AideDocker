@@ -1,6 +1,5 @@
 
-# Project Titre
-Connexion PHP Mysql
+# Project Titre Connexion PHP Mysql
 
 
 ## Installation
@@ -11,7 +10,7 @@ Installation :
   docker-compose up -d
 ```
 
-Mon but : J'aimerais changé le port de la base de données.
+## Mon but : J'aimerais changé le port de la base de données.
 
 Mes essais : 
   J'ai modifié dans le docker-compose : ligne 48 
@@ -22,4 +21,4 @@ par contre pas mon application malgré la modification de mon fichier de connect
 
 J'ai essayé de trouvé une variable d'environnement à ajouter au serveur web, rien de concluant.
 
-Ma question: Où intervenir pour que le serveur web accède à la base de données sur un autre port?
+## Ma question: Où intervenir pour que le serveur web accède à la base de données sur un autre port?
