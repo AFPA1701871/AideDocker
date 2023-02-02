@@ -45,7 +45,7 @@ services:
     container_name: server-mysql
     restart: always
     ports:
-      - "3306:3306"
+      - "3310:3306"
     environment : 
       - ENV MYSQL_ROOT_PASSWORD test
     volumes:
@@ -62,7 +62,7 @@ services:
       PMA_HOST: server-mysql
       PMA_USER: root
       PMA_PASSWORD: test
-      PMA_PORTS: 3306
+      PMA_PORTS: 3310
     ports:
       - 8000:80
     depends_on:
